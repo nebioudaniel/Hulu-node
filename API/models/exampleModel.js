@@ -30,3 +30,14 @@ ExampleSchema.virtual('fullName').get(function() {
 
 // Create and export the model based on the schema
 module.exports = mongoose.model('Example', ExampleSchema);
+////Data Model: We'll define the Mongoose schema for products in the models/exampleModel.js
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  name: String,
+  price: Number,
+  category: String,
+  // Add more fields as needed
+});
+
+module.exports = mongoose.model('Product', productSchema);
