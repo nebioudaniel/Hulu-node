@@ -1,37 +1,40 @@
-// Handling MongoDB Connection Errors
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => {
-    console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit process with failure
-  });
-// Defining a Schema and Model
-const mongoose = require('mongoose');
-
-const ExampleSchema = new mongoose.Schema({
-  propertyName: {
-    type: String,
-    required: true
-  },
-  // Add more properties here as needed
-});
-
-const ExampleModel = mongoose.model('Example', ExampleSchema);
-
-module.exports = ExampleModel;
-//Inserting Data into MongoDB
-const Example = require('../models/exampleModel');
-
-const newData = new Example({
-  propertyName: 'Example Value'
-  // Add more properties here as needed
-});
-
-newData.save()
-  .then(() => console.log('Data saved to MongoDB'))
-  .catch(err => console.error('Error saving data to MongoDB:', err));
-//const Example = require('../models/exampleModel');
-
-Example.find({ /* Query conditions */ })
-  .then(data => console.log('Data retrieved from MongoDB:', data))
-  .catch(err => console.error('Error retrieving data from MongoDB:', err));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example Page</title>
+  <style>
+    /* Add custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Example Data</h1>
+  </header>
+  <main>
+    <ul>
+      <!-- Loop through the data and display each item -->
+      <% data.forEach(item => { %>
+        <li><%= item.propertyName %></li>
+      <% }); %>
+    </ul>
+  </main>
+</body>
+</html>
