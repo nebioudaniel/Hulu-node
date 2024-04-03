@@ -1,3 +1,4 @@
+// Importing required modules
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -6,9 +7,10 @@ const path = require('path');
 const config = require('./config');
 const indexRoute = require('./routes/index');
 
+// Creating an Express application
 const app = express();
 
-// Middleware
+// Middleware setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,9 +22,12 @@ mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: t
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Routes
+// Routes setup
 app.use('/', indexRoute);
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Exporting the Express app for testing purposes
+module.exports = app;
