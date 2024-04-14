@@ -1,3 +1,4 @@
+```javascript
 // Importing required modules
 const express = require('express');
 const mongoose = require('mongoose');
@@ -31,3 +32,5 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Exporting the Express app for testing purposes
 module.exports = app;
+```
+
