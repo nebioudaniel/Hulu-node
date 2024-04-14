@@ -1,5 +1,4 @@
-// app.js
-
+javascript
 const express = require('express');
 const securityMiddleware = require('./security');
 
@@ -9,6 +8,9 @@ const app = express();
 app.use(securityMiddleware);
 
 // Define your routes and other middleware...
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
