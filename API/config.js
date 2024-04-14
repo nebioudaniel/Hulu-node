@@ -1,4 +1,3 @@
-// mongoExample.js
 
 const mongoose = require('mongoose');
 
@@ -46,3 +45,5 @@ newData.save()
 ExampleModel.find({ /* Query conditions */ })
   .then(data => console.log('Data retrieved from MongoDB:', data))
   .catch(err => console.error('Error retrieving data from MongoDB:', err));
+
+
