@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 // MongoDB connection URI. Replace 'your-mongodb-connection-string' with your actual MongoDB connection string.
@@ -45,5 +44,3 @@ newData.save()
 ExampleModel.find({ /* Query conditions */ })
   .then(data => console.log('Data retrieved from MongoDB:', data))
   .catch(err => console.error('Error retrieving data from MongoDB:', err));
-
-
