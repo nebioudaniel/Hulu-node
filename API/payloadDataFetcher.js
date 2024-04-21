@@ -1,9 +1,8 @@
-const axios = require('axios');
-
 class PayloadDataFetcher {
   async fetchProducts() {
     try {
       const response = await axios.get('https://your-payload-cms-api.com/api/products');
+      if (!response.data.length) throw new Error('No products found');
       return response.data;
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -21,14 +20,3 @@ class PayloadDataFetcher {
     }
   }
 }
-
-// Example usage:
-// const payloadFetcher = new PayloadDataFetcher();
-// payloadFetcher.fetchProducts().then(products => {
-//   console.log(products);
-// });
-
-// Example fetching product by ID
-payloadFetcher.fetchProductById(123).then(product => {
-  console.log(product);
-});
