@@ -1,4 +1,3 @@
-javascript
 const express = require('express');
 const securityMiddleware = require('./security');
 
@@ -14,6 +13,11 @@ app.get('/', (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+// Handle server startup errors
+server.on('error', (error) => {
+  console.error('Server startup error:', error);
 });
