@@ -41,3 +41,14 @@ const productSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Product', productSchema);
+const mongoose = require('mongoose');
+
+const productSchema = new mongoose.Schema({
+  name: String,
+  price: Number,
+  category: String,
+  description: String // Added description field
+  // Add more fields as needed
+});
+
+module.exports = mongoose.model('Product', productSchema);
