@@ -27,6 +27,20 @@ router.get('/api/products/:id', async (req, res) => {
   }
 });
 
+// Get products by category
+router.get('/api/products/category/:category', async (req, res) => {
+  try {
+    const products = await Product.find({ category: req.params.category });
+    if (products.length === 0) {
+      return res.status(404).json({ error: 'Products not found for this category' });
+    }
+    res.json(products);
+  } catch (err) {
+    console.error('Error fetching products by category:', err);
+    res.status(500).json({ error: 'Server Error' });
+  }
+});
+
 // Create a new product
 router.post('/api/products', async (req, res) => {
   try {
