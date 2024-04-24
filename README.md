@@ -2,7 +2,7 @@
 
 **Introduction**
 
-Welcome! This guide empowers you to integrate your application with the Hulu Digital Marketplace API, enabling seamless product management within your application.
+Welcome! This guide empowers you to integrate your application with the Hulu Digital Marketplace API, enabling seamless product management within your application
 
 **Prerequisites**
 
