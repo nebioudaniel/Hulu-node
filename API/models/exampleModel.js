@@ -1,3 +1,4 @@
+
 // Import Mongoose
 const mongoose = require('mongoose');
 
@@ -55,3 +56,5 @@ productSchema.statics.findByCategory = function(category, callback) {
 };
 
 module.exports = { Example, Product };
+
+
