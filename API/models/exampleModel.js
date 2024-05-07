@@ -1,7 +1,8 @@
+// Import Mongoose
 const mongoose = require('mongoose');
 
-// Define the schema for your MongoDB collection
-const ExampleSchema = new mongoose.Schema({
+// Define the schema for the "Example" collection
+const exampleSchema = new mongoose.Schema({
   propertyName: {
     type: String,
     required: true,
@@ -24,25 +25,14 @@ const ExampleSchema = new mongoose.Schema({
 });
 
 // Create a virtual property based on other properties in the schema
-ExampleSchema.virtual('fullName').get(function() {
+exampleSchema.virtual('fullName').get(function() {
   return this.firstName + ' ' + this.lastName;
 });
 
 // Create and export the model based on the schema
-module.exports = mongoose.model('Example', ExampleSchema);
-////Data Model: We'll define the Mongoose schema for products in the models/exampleModel.js
-const mongoose = require('mongoose');
+const Example = mongoose.model('Example', exampleSchema);
 
-const productSchema = new mongoose.Schema({
-  name: String,
-  price: Number,
-  category: String,
-  // Add more fields as needed
-});
-
-module.exports = mongoose.model('Product', productSchema);
-const mongoose = require('mongoose');
-
+// Define the schema for the "Product" collection
 const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
@@ -51,4 +41,17 @@ const productSchema = new mongoose.Schema({
   // Add more fields as needed
 });
 
-module.exports = mongoose.model('Product', productSchema);
+// Create and export the model based on the schema
+const Product = mongoose.model('Product', productSchema);
+
+// Define a method to find products within a specific price range
+productSchema.statics.findByPriceRange = function(minPrice, maxPrice, callback) {
+  return this.find({ price: { $gte: minPrice, $lte: maxPrice } }, callback);
+};
+
+// Define a method to find products by category
+productSchema.statics.findByCategory = function(category, callback) {
+  return this.find({ category: category }, callback);
+};
+
+module.exports = { Example, Product };
