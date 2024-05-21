@@ -1,4 +1,4 @@
-## Hulu Digital Marketplace API Integration Guide.txt
+## Hulu Digital Marketplace API Integration Guide File
 
 **Introduction**
 
