@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+// for path endicator 
 const path = require('path');
 const config = require('./config');
 const indexRoute = require('./routes/index');
