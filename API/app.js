@@ -11,7 +11,7 @@ const indexRoute = require('./routes/index');
 // Creating an Express application
 const app = express();
 
-// Middleware setup
+// Middleware Setup
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
