@@ -17,7 +17,7 @@ Welcome! This guide empowers you to integrate your application with the Hulu Dig
    git clone https://github.com/nebioudaniel/hulu-digital-marketplace-api.git
    ```
 
-2. **Install Dependencies:**
+2. **Install Dependencies Is:**
 
    ```bash
    cd hulu-digital-marketplace-api
