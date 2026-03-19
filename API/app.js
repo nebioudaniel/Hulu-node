@@ -11,7 +11,7 @@ const indexRoute = require('./routes/index');
 
 const app = express();
 
-// Middleware Setup
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -26,7 +26,7 @@ mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: t
 
 app.use('/', indexRoute);
 
-// Start the server
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
