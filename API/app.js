@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
-// for path endicator 
+
 const path = require('path');
 const config = require('./config');
 const indexRoute = require('./routes/index');
@@ -30,5 +30,5 @@ app.use('/', indexRoute);
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// Exporting the Express app for testing purposes
+
 module.exports = app;
