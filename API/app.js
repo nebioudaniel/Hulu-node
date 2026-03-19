@@ -8,7 +8,7 @@ const path = require('path');
 const config = require('./config');
 const indexRoute = require('./routes/index');
 
-// Creating an Express application
+
 const app = express();
 
 // Middleware Setup
@@ -23,7 +23,7 @@ mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: t
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Routes setup
+
 app.use('/', indexRoute);
 
 // Start the server
